@@ -57,6 +57,9 @@ private:
     QVector <QPointF> curve;
     QVector <QPointF> m;
 
+    int curTab;
+    bool carcas;
+
 
 signals:
 
@@ -81,12 +84,16 @@ public slots:
     void setYAmbientColor(int color);
     void setZAmbientColor(int color);
 
-    //void setMaterialShiness(int intence);
     void setApproximation(int aCount);
 
-   // void setXMaterialIndexes(int intence);
-   // void setYMaterialIndexes(int intence);
-   // void setZMaterialIndexes(int intence);
+    void clearWidget();
+
+    void changeA(int num);
+    void changeB(int num);
+
+    void changeTab(int tab);
+    void drawCarcas(bool change);
+
 
 };
 
