@@ -131,24 +131,26 @@ void MyGLWidget::curvePoints() {
 
         double step = fabs(curve[j+1].x() - curve[j].x()) / count;
 
-        if(curve[j].x() < curve[j+1].x())
+        if(curve[j].x() < curve[j+1].x()) {
             for(double x = curve[j].x(); x < curve[j+1].x() + step; x+=step) {
                 toDraw = splain(x, curve[j], curve[j+1], m[j], m[j+1]);
                 curveVertex.push_back(toDraw.x());
                 curveVertex.push_back(toDraw.y());
                 curveVertex.push_back(0);
                 index.push_back(index.size());
+                if(curveVertex.size() >= (j+1) * count * 3 + 3)
+                    break;
             }
-        else
+        }
+       /* else
             for(double x = curve[j].x(); x > curve[j+1].x() - step; x-=step) {
                 toDraw = splain(x, curve[j], curve[j+1], m[j], m[j+1]);
                 curveVertex.push_back(toDraw.x());
                 curveVertex.push_back(toDraw.y());
                 curveVertex.push_back(0);
                 index.push_back(index.size());
-            }
+            }*/
     }
-
 
 }
 

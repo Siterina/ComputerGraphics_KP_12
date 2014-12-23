@@ -69,7 +69,7 @@
        <number>5</number>
       </property>
       <property name="value">
-       <number>255</number>
+       <number>0</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -97,7 +97,7 @@
        <number>5</number>
       </property>
       <property name="value">
-       <number>25</number>
+       <number>63</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -125,16 +125,12 @@
        <number>5</number>
       </property>
       <property name="value">
-       <number>255</number>
+       <number>76</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <zorder>myGLWidget</zorder>
-     <zorder>materialR</zorder>
-     <zorder>materialG</zorder>
-     <zorder>materialB</zorder>
     </widget>
    </item>
    <item row="2" column="1">
@@ -261,7 +257,7 @@
        <number>5</number>
       </property>
       <property name="value">
-       <number>255</number>
+       <number>127</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -289,7 +285,7 @@
        <number>5</number>
       </property>
       <property name="value">
-       <number>255</number>
+       <number>153</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -317,16 +313,12 @@
        <number>5</number>
       </property>
       <property name="value">
-       <number>255</number>
+       <number>178</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <zorder>myGLWidget</zorder>
-     <zorder>lightR</zorder>
-     <zorder>lightG</zorder>
-     <zorder>lightB</zorder>
     </widget>
    </item>
    <item row="5" column="1">
@@ -356,7 +348,7 @@
        <number>5</number>
       </property>
       <property name="value">
-       <number>255</number>
+       <number>114</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -384,7 +376,7 @@
        <number>5</number>
       </property>
       <property name="value">
-       <number>255</number>
+       <number>89</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -412,16 +404,12 @@
        <number>5</number>
       </property>
       <property name="value">
-       <number>255</number>
+       <number>102</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <zorder>myGLWidget</zorder>
-     <zorder>ambientR</zorder>
-     <zorder>ambientG</zorder>
-     <zorder>ambientB</zorder>
     </widget>
    </item>
    <item row="0" column="0" rowspan="7">
@@ -532,10 +520,6 @@
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <zorder>rotationXSlider</zorder>
-     <zorder>rotationXSlider</zorder>
-     <zorder>rotationYSlider</zorder>
-     <zorder>rotationZSlider</zorder>
     </widget>
    </item>
    <item row="0" column="1">
