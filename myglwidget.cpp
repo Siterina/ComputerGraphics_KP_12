@@ -10,6 +10,7 @@ MyGLWidget::MyGLWidget(QWidget *parent) :
     QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
 {
     a = 40, b = 60, count = 40;
+    c = 0; // Catmull Rom
     xRot = 0, yRot = 0, zRot = 0;
     xLightPos = 0, yLightPos = 0, zLightPos = 400;
     xMaterialColor = 0, yMaterialColor = 0.25, zMaterialColor = 0.3;
@@ -71,23 +72,6 @@ void MyGLWidget::countFigurePoints() {
              tempPoint.clear();
         }
     }
-
-/*    if(!carcas) {
-        for(int i = 0; i < count * (curve.size() - 1); i++) {
-            for(int j = 0; j < count; phi += step_phi, j++) {
-
-                 tempPoint.push_back(ellipsPoint(phi, curveVertex[3*i], curveVertex[3*i + 1]));
-                 tempPoint.push_back(ellipsPoint(phi + step_phi, curveVertex[3*i], curveVertex[3*i + 1]));
-                 tempPoint.push_back(ellipsPoint(phi + step_phi, curveVertex[3*i + 3], curveVertex[3*i + 1 + 3]));
-                 tempPoint.push_back(ellipsPoint(phi, curveVertex[3*i + 3], curveVertex[3*i + 1 + 3]));
-
-                 n = QVector3D::normal(tempPoint[3] - tempPoint[0], tempPoint[1] - tempPoint[0]);
-
-                 addToMassive(tempPoint, n);
-                 tempPoint.clear();
-            }
-        }
-    }*/
 }
 
 QPointF splain(double x, QPointF Pk, QPointF Pk1, QPointF Mk, QPointF Mk1) {
@@ -112,11 +96,11 @@ void MyGLWidget::curvePoints() {
 
     for(int j = 0; j <= curve.size() - 1; j++) { // count differential vector
         if(j == 0)
-            m.push_back((curve[j+1] - curve[j]) / (curve[j+1].x() - curve[j].x()));
+            m.push_back((1 - c)*(curve[j+1] - curve[j]) / (curve[j+1].x() - curve[j].x()));
         else if(j == curve.size() - 1)
-            m.push_back((curve[j] - curve[j-1]) / (curve[j].x() - curve[j-1].x()));
+            m.push_back((1 - c)*(curve[j] - curve[j-1]) / (curve[j].x() - curve[j-1].x()));
         else
-            m.push_back((curve[j+1] - curve[j-1]) / (curve[j+1].x() - curve[j-1].x()));
+            m.push_back((1 - c)*(curve[j+1] - curve[j-1]) / (curve[j+1].x() - curve[j-1].x()));
 
     }
 
@@ -268,15 +252,8 @@ void MyGLWidget::paintGL() {
             glDrawElements(GL_LINE_STRIP,index.size(),GL_UNSIGNED_INT,index.data());
             glDisableClientState(GL_VERTEX_ARRAY);
         }
-
-
-
-
      }
-
 }
-
-
 
 
 /*******************************************/
@@ -398,5 +375,10 @@ void MyGLWidget::changeTab(int tab){
 
 void MyGLWidget::drawCarcas(bool change) {
     carcas = change;
+    updateGL();
+}
+
+void MyGLWidget::changeC(double num) {
+    c = num;
     updateGL();
 }

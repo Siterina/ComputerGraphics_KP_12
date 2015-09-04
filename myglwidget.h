@@ -49,7 +49,7 @@ private:
     float zAmbientColor;
 
     double materialShiness;
-    double a, b;
+    double a, b, c;
     double count;
 
     double lastX, lastY;
@@ -90,6 +90,7 @@ public slots:
 
     void changeA(int num);
     void changeB(int num);
+    void changeC(double num);
 
     void changeTab(int tab);
     void drawCarcas(bool change);
